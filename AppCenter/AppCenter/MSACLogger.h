@@ -13,7 +13,7 @@
 #endif
 
 #define MSACLog(_level, _tag, _message)                                                                                                    \
-  [MSACLogger logMessage:_message level:_level tag:_tag file:@"" function:__PRETTY_FUNCTION__ line:__LINE__]
+  [MSACLogger logMessage:_message level:_level tag:_tag file:' ' function:__PRETTY_FUNCTION__ line:__LINE__]
 #define MSACLogAssert(tag, format, ...)                                                                                                    \
   MSACLog(MSACLogLevelAssert, tag, (^{                                                                                                     \
             return [NSString stringWithFormat:(format), ##__VA_ARGS__];                                                                    \
