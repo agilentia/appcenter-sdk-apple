@@ -41,6 +41,7 @@ let projectHeaderSearchPaths = [
     "../../AppCenterCrashes/AppCenterCrashes/WrapperSDKUtilities",
     "../../AppCenterDistribute/AppCenterDistribute/Internals",
     "../../AppCenterDistribute/AppCenterDistribute/Internals/Channel",
+    "../../AppCenterDistribute/AppCenterDistribute/Internals/Ingestion",
     "../../AppCenterDistribute/AppCenterDistribute/Internals/Model",
     "../../AppCenterDistribute/AppCenterDistribute/Internals/Version",
     "../../AppCenterDistribute/AppCenterDistribute/Internals/Util",
@@ -54,22 +55,19 @@ let package = Package(
     name: "AppCenter",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v9),
-        .macOS(.v10_10),
+        .iOS(.v11),
+        .macOS(.v10_13),
         .tvOS(.v11)
     ],
     products: [
         .library(
             name: "AppCenterAnalytics",
-            type: .static,
             targets: ["AppCenterAnalytics"]),
         .library(
             name: "AppCenterCrashes",
-            type: .static,
             targets: ["AppCenterCrashes"]),
         .library(
             name: "AppCenterDistribute",
-            type: .static,
             targets: ["AppCenterDistribute"]),
     ],
     dependencies: [
@@ -82,7 +80,7 @@ let package = Package(
             exclude: ["Support"],
             cSettings: {
                 var settings: [CSetting] = [
-                    .define("APP_CENTER_C_VERSION", to: "\"4.4.3\""),
+                    .define("APP_CENTER_C_VERSION", to:"\"5.0.3\""),
                     .define("APP_CENTER_C_BUILD", to: "\"1\"")
                 ]
                 settings.append(contentsOf: cHeaderSearchPaths)

@@ -12,7 +12,7 @@
 /**
  * Error log for Apple platforms.
  */
-@interface MSACAppleErrorLog : MSACAbstractErrorLog <MSACNoAutoAssignSessionIdLog>
+@interface MSACAppleErrorLog : MSACAbstractErrorLog <MSACNoAutoAssignSessionIdLog, NSSecureCoding>
 
 /**
  * CPU primary architecture.
@@ -94,10 +94,5 @@
  * The last exception backtrace.
  */
 @property(nonatomic) MSACExceptionModel *exception;
-
-/**
- * Is current CPU type encoding known.
- */
-@property(nonatomic) BOOL isKnownEncodingType;
 
 @end

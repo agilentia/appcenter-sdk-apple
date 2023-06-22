@@ -13,6 +13,11 @@ static int sqliteConfigurationResult = SQLITE_ERROR;
 
 @implementation MSACDBStorage
 
+#pragma clang diagnostic push
+#if __has_warning("-Wobjc-load-method")
+#pragma clang diagnostic ignored "-Wobjc-load-method"
+#endif
+
 + (void)load {
 
   /*
@@ -22,6 +27,8 @@ static int sqliteConfigurationResult = SQLITE_ERROR;
   sqliteConfigurationResult = [self configureSQLite];
 }
 
+#pragma clang diagnostic pop
+
 - (instancetype)initWithSchema:(MSACDBSchema *)schema version:(NSUInteger)version filename:(NSString *)filename {
   _schema = schema;
 
@@ -30,12 +37,7 @@ static int sqliteConfigurationResult = SQLITE_ERROR;
     if (sqliteConfigurationResult == SQLITE_OK) {
       MSACLogDebug([MSACAppCenter logTag], @"SQLite global configuration successfully updated.");
     } else {
-      NSString *errorString;
-      if (@available(macOS 10.10, *)) {
-        errorString = [NSString stringWithUTF8String:sqlite3_errstr(sqliteConfigurationResult)];
-      } else {
-        errorString = @(sqliteConfigurationResult).stringValue;
-      }
+      NSString *errorString = [NSString stringWithUTF8String:sqlite3_errstr(sqliteConfigurationResult)];
       MSACLogError([MSACAppCenter logTag], @"Failed to update SQLite global configuration. Error: %@.", errorString);
     }
   });

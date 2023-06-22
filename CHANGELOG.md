@@ -1,8 +1,53 @@
 # App Center SDK for iOS, macOS and tvOS Change Log
 
-## Version 4.4.3 (Under development)
+## Version 5.0.3 (Under development)
+
+* **[Fix]** Fix the build issue with Xcode 15 beta when integrating via Swift Package Manager.
+
+## Version 5.0.2
+
+### App Center
+
+* **[Fix]** Fix NSLog congestion on Apple's Framework Thread.
+* **[Improvement]** Always specify `isDirectory` parameter for `[NSURL URLByAppendingPathComponent:]` for better performace.
+* **[Improvement]** Disable treating warnings as errors in code to avoid blockers when new Xcode warnings are introduced.
 
  ___
+
+## Version 5.0.1
+
+### App Center
+
+* **[Fix]** Fix Unsafe Object Deserialization.
+* **[Fix]** Fix "Collection was mutated while being enumerated" exception in MSACChannelGroupDefault.
+* **[Fix]** Fix crash channel:didPrepareLog in MSACChannelGroupDefault
+
+### App Center Distribute
+
+* **[Fix]** Fix crash in getPresentationAnchor function if the active scene is not an instance of UIWindowScene.
+ ___
+
+## Version 5.0.0
+
+### App Center
+
+* **[Feature] Add Xcode 14 support. Xcode 11 and Xcode 12 are out of support now. Bump minumum supported iOS version to iOS 11.
+
+### App Center Crashes
+
+* **[Improvement]** Update PLCrashReporter to 1.11.0.
+
+## Version 4.4.3
+
+### App Center
+
+* **[Fix]** Fix SwiftUI Preview in Xcode 14 when adding App Center SDK through SwiftPM.
+
+### App Center Crashes
+
+* **[Improvement]** Update PLCrashReporter to 1.10.2.
+
+___
 
 ## Version 4.4.2
 
