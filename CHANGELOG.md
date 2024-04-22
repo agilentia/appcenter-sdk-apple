@@ -1,6 +1,16 @@
 # App Center SDK for iOS, macOS and tvOS Change Log
 
-## Version 5.0.3 (Under development)
+## Version 5.0.5 (Under development)
+
+* **[Fix]** Handle the special value (--) returned by CTCarrier after it has been depcrecated with iOS 16.
+
+## Version 5.0.4
+
+* **[Improvement]** Update App Center SDK to include privacy manifest.
+* **[Internal]** Add `dataResidencyRegion` option.
+* **[Fix]** Mitigate the runtime pressure when starting App Center Crashes.
+
+## Version 5.0.3
 
 * **[Fix]** Fix the build issue with Xcode 15 beta when integrating via Swift Package Manager.
 
